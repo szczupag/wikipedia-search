@@ -9,7 +9,6 @@ const SearchPanel = () => {
   const {
     searchInputChangeHandler,
     searchButtonClickHandler,
-    setResults,
     searchPhrase,
     loading,
     results,

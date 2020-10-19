@@ -42,7 +42,6 @@ const useRequestQuery = () => {
   return {
     searchInputChangeHandler,
     searchButtonClickHandler,
-    setResults,
     searchPhrase,
     loading,
     results,
