@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import requestWikipediaQuery from '../api/requestWikipediaQuery';
 
 const useRequestQuery = () => {
@@ -6,6 +6,8 @@ const useRequestQuery = () => {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const [error, setError] = useState(false);
+
+  const buttonlessRequestTimer = useRef(null);
 
   const searchInputChangeHandler = (event) => {
     event.persist();
@@ -24,19 +26,23 @@ const useRequestQuery = () => {
   };
 
   const searchButtonClickHandler = () => {
+    clearTimeout(buttonlessRequestTimer.current);
     requestWikipediaQueryHandler();
   };
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (searchPhrase) requestWikipediaQueryHandler(searchPhrase);
+    buttonlessRequestTimer.current = setTimeout(() => {
+      if (searchPhrase) {
+        requestWikipediaQueryHandler(searchPhrase);
+      }
     }, 2000);
-    return () => clearTimeout(timeout);
+    return () => clearTimeout(buttonlessRequestTimer.current);
   }, [searchPhrase]);
 
   return {
     searchInputChangeHandler,
     searchButtonClickHandler,
+    setResults,
     searchPhrase,
     loading,
     results,

@@ -9,15 +9,23 @@ const useReplaceWith = () => {
     setReplaceWith(value);
   };
 
-  const replaceButtonClickHandler = () => console.log('Replace!', replaceWith);
-  const replaceAllButtonClickHandler = () => console.log('Replace all!', replaceWith);
+  const replaceFirst = () => {
+    const matches = document.querySelectorAll('.searchmatch');
+    const firstMatch = Array.from(matches).find(el => el.innerHTML !== replaceWith);
+    if (firstMatch) firstMatch.innerHTML = replaceWith;
+  };
+
+  const replaceAll = () => {
+    const matches = document.querySelectorAll('.searchmatch');
+    if (matches) matches.forEach(match => match.innerHTML = replaceWith);
+  };
 
   return {
     replaceInputChangeHandler,
-    replaceButtonClickHandler,
-    replaceAllButtonClickHandler,
+    replaceButtonClickHandler: replaceFirst,
+    replaceAllButtonClickHandler: replaceAll,
     replaceWith,
-  }
-}
+  };
+};
 
 export default useReplaceWith;
