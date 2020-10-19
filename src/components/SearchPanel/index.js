@@ -9,6 +9,7 @@ const SearchPanel = () => {
     searchInputChangeHandler,
     searchButtonClickHandler,
     searchPhrase,
+    loading,
     results,
     error,
   } = useRequestQuery();
@@ -45,6 +46,7 @@ const SearchPanel = () => {
         onClick={replaceAllButtonClickHandler}
       />
       <p>Results</p>
+      {loading && <span>Loading...</span>}
       {results.map((el, id) => <p key={id}>{JSON.stringify(el)}</p>)}
       <p>Errors</p>
       {error}
