@@ -12,4 +12,5 @@
 
 .snippet :global(.searchmatch) {
   font-weight: 400;
+  color: #f95478;
 }

@@ -1,12 +1,13 @@
 import React from 'react';
 import Result from './Result';
+import Loading from '../Loading';
 
 const Results = ({
   data,
   error,
   loading,
 }) => {
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>{error}</p>;
   return (
     <>
