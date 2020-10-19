@@ -3,6 +3,7 @@ import Button from '../Button';
 import Input from '../Input';
 import useRequestQuery from '../../hooks/useRequestQuery';
 import useReplaceWith from '../../hooks/useReplaceWith';
+import Results from '../Results';
 
 const SearchPanel = () => {
   const {
@@ -45,11 +46,11 @@ const SearchPanel = () => {
         text="Replace all"
         onClick={replaceAllButtonClickHandler}
       />
-      <p>Results</p>
-      {loading && <span>Loading...</span>}
-      {results.map((el, id) => <p key={id}>{JSON.stringify(el)}</p>)}
-      <p>Errors</p>
-      {error}
+      <Results
+        data={results}
+        error={error}
+        loading={loading}
+      />
     </div>
   );
 }
