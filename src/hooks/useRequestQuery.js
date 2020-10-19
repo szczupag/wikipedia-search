@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import requestWikipediaQuery from '../api/requestWikipediaQuery';
 
 const useRequestQuery = () => {
@@ -14,6 +14,7 @@ const useRequestQuery = () => {
   };
 
   const requestWikipediaQueryHandler = () => {
+    setLoading(true);
     requestWikipediaQuery(searchPhrase)
       .then(setResults)
       .catch(setError)
@@ -21,9 +22,15 @@ const useRequestQuery = () => {
   };
 
   const searchButtonClickHandler = () => {
-    setLoading(true);
     requestWikipediaQueryHandler();
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (searchPhrase) requestWikipediaQueryHandler(searchPhrase);
+    }, 2000);
+    return () => clearTimeout(timeout);
+  }, [searchPhrase]);
 
   return {
     searchInputChangeHandler,
