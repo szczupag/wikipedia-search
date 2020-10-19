@@ -1,6 +1,9 @@
 # Wikipedia Search - React app
 Front-end recruitment task for XTM.
 
+## Demo
+https://szczupag.github.io/wikipedia-search/
+
 ## Task description
 Implement a code that will look for the top 10 results in the Wikipedia API
 
