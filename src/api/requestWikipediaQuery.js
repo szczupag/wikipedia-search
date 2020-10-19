@@ -18,11 +18,11 @@ const requestWikipediaQuery = async (searchPhrase) => {
   const response = await fetch(url);
   const data = await response.json();
   if (!response.ok) {
-    throw(`[Wikipedia API error] ${response.status}`);
+    throw(`Wikipedia API error: ${response.status} 😰`);
   }
   const result = (data.query || {}).search || [];
   if (result.length === 0) {
-    throw('No result found!')
+    throw('No result found! 🥺')
   }
   return result;
 };
