@@ -1,4 +1,5 @@
 import React from 'react';
+import s from './styles.css';
 
 const Button = ({
   text,
@@ -7,6 +8,7 @@ const Button = ({
     <button
       role="button"
       onClick={onClick}
+      className={s.button}
     >
       {text}
     </button>

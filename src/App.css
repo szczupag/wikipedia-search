@@ -7,3 +7,8 @@ body {
   max-width: 800px;
   margin: 32px auto;
 }
+
+.title {
+  text-align: center;
+  font-size: 3em;
+}
