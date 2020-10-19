@@ -9,6 +9,7 @@ const SearchPanel = () => {
   const {
     searchInputChangeHandler,
     searchButtonClickHandler,
+    setResults,
     searchPhrase,
     loading,
     results,
@@ -20,7 +21,7 @@ const SearchPanel = () => {
     replaceButtonClickHandler,
     replaceAllButtonClickHandler,
     replaceWith,
-  } = useReplaceWith();
+  } = useReplaceWith(results, setResults);
 
   return (
     <div>
