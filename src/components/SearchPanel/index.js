@@ -21,7 +21,7 @@ const SearchPanel = () => {
     replaceButtonClickHandler,
     replaceAllButtonClickHandler,
     replaceWith,
-  } = useReplaceWith(results, setResults);
+  } = useReplaceWith();
 
   return (
     <div>

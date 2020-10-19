@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useReplaceWith = (results, setResults) => {
+const useReplaceWith = () => {
   const [replaceWith, setReplaceWith] = useState('');
 
   const replaceInputChangeHandler = (event) => {
@@ -9,24 +9,20 @@ const useReplaceWith = (results, setResults) => {
     setReplaceWith(value);
   };
 
-  const replaceAll = () => {
-    const searchMatch = /<span class="searchmatch">(.*?)<\/span>/gm;
-    const newSearchMatch = `<span class="searchmatch">${replaceWith}</span>`;
-    const newResults = results.map(result => {
-      const newSnippet = result.snippet.replaceAll(searchMatch, newSearchMatch);
-      return ({
-        ...result,
-        snippet: newSnippet,
-      });
-    });
-    setResults(newResults);
+  const replaceFirst = () => {
+    const matches = document.querySelectorAll('.searchmatch');
+    const firstMatch = Array.from(matches).find(el => el.innerHTML !== replaceWith);
+    if (firstMatch) firstMatch.innerHTML = replaceWith;
   };
 
-  const replaceButtonClickHandler = () => console.log('Replace!', replaceWith);
+  const replaceAll = () => {
+    const matches = document.querySelectorAll('.searchmatch');
+    if (matches) matches.forEach(match => match.innerHTML = replaceWith);
+  };
 
   return {
     replaceInputChangeHandler,
-    replaceButtonClickHandler,
+    replaceButtonClickHandler: replaceFirst,
     replaceAllButtonClickHandler: replaceAll,
     replaceWith,
   };
