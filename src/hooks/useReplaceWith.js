@@ -15,15 +15,23 @@ const useReplaceWith = () => {
     if (firstMatch) firstMatch.innerHTML = replaceWith;
   };
 
+  const replaceButtonClickHandler = () => {
+    if (replaceWith) replaceFirst();
+  }
+
   const replaceAll = () => {
     const matches = document.querySelectorAll('.searchmatch');
     if (matches) matches.forEach(match => match.innerHTML = replaceWith);
   };
 
+  const replaceAllButtonClickHandler = () => {
+    if (replaceWith) replaceAll();
+  }
+
   return {
     replaceInputChangeHandler,
-    replaceButtonClickHandler: replaceFirst,
-    replaceAllButtonClickHandler: replaceAll,
+    replaceButtonClickHandler,
+    replaceAllButtonClickHandler,
     replaceWith,
   };
 };
