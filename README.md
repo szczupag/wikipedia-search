@@ -21,6 +21,8 @@ sample query
 - Style loaders with autoprefixer.
 - Jest & react testing library.
 
+Node version: `v14.11.0`
+
 ## Running locally with node
 Clone repository
 ```
