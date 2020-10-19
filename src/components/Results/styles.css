@@ -1,5 +1,9 @@
 .result {
-  margin-bottom: 16px;
+  margin: 24px 0;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 4px #00000016;
+  border-radius: 8px;
 }
 
 .title {
@@ -8,6 +12,7 @@
 
 .snippet {
   font-weight: 300;
+  margin-top: 8px;
 }
 
 .snippet :global(.searchmatch) {
