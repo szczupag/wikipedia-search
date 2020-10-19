@@ -1,0 +1,15 @@
+.result {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.snippet {
+  font-weight: 300;
+}
+
+.snippet :global(.searchmatch) {
+  font-weight: 400;
+}
