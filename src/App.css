@@ -1,8 +1,14 @@
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #f8f7fd;
 }
 
 .root {
   max-width: 800px;
   margin: 32px auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 3em;
 }
