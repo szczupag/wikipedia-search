@@ -14,6 +14,8 @@ const useRequestQuery = () => {
   };
 
   const requestWikipediaQueryHandler = () => {
+    setResults([]);
+    setError(false);
     setLoading(true);
     requestWikipediaQuery(searchPhrase)
       .then(setResults)
