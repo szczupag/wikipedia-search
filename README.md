@@ -1,5 +1,4 @@
 # Wikipedia Search - React app
-Front-end recruitment task for XTM.
 
 ## Demo
 https://szczupag.github.io/wikipedia-search/
